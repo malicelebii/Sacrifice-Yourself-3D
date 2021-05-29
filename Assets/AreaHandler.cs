@@ -29,7 +29,7 @@ public class AreaHandler : MonoBehaviour
         masum_sayisi = 0;
         suclu_sayisi = 0;
         real_camera.enabled = true;
-     death_camera.enabled = false;
+        death_camera.enabled = false;
     }
 
     // Update is called once per frame
@@ -87,11 +87,17 @@ public class AreaHandler : MonoBehaviour
             Debug.Log("degdi innocent");
             Debug.Log(collision.name);
         }
+        // Change Camera
+        death_camera.enabled=true;
+        real_camera.enabled=false;
+        Invoke("PanelHandler",1.5f);
+    }
+
+    void PanelHandler(){
         if (gozcu_sayisi + suclu_sayisi < masum_sayisi)
         {
             GameOverPanel.SetActive(true);
             SucceedPanel.SetActive(false);
-
         }
         else
         {
@@ -102,16 +108,10 @@ public class AreaHandler : MonoBehaviour
             }
             else
             {
-
                 SucceedPanel.SetActive(true);
                 GameOverPanel.SetActive(false);
             }
 
         }
-
-        death_camera.enabled=true;
-        real_camera.enabled=false;
-        
-
     }
 }
