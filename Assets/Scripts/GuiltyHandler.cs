@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GuiltyHandler : MonoBehaviour
 {
+    public static Animator isFire;
     // Start is called before the first frame update
     void Start()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -610,6 +610,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 43.315, y: -87.167, z: -21.28}
+--- !u!1001 &139075654
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1194876633}
+    m_Modifications:
+    - target: {fileID: 6198862999996941250, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_Name
+      value: firesys
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.871
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.101
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.07663583
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.84062326
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.1234705
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5217611
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198862999996941253, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7568e85d04ceae4783876b1b134ff28, type: 3}
 --- !u!1001 &150786330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5926,6 +5983,7 @@ MonoBehaviour:
   bomb: {fileID: 32467287}
   area: {fileID: 556359863}
   JoystickCanvas: {fileID: 482120622}
+  dynamitefire: {fileID: 0}
   count: {fileID: 380887551}
   direction: {x: 0, y: 0, z: 0}
   speed: 4

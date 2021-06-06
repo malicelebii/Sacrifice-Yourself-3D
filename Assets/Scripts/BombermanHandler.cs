@@ -9,7 +9,7 @@ public class BombermanHandler : MonoBehaviour
 
     public Animator running;
     public Animator bombed;
-    public Animator isFired;
+    public  Animator isFired;
     public Animator walking;
     // public Animator masum_death;
     // public Animator suclu_death;
@@ -18,16 +18,16 @@ public class BombermanHandler : MonoBehaviour
     // public GameObject masum;
     public GameObject area;
     public GameObject JoystickCanvas;
-   
+     public GameObject dynamitefire;
     // public GameObject suclu;
-
     public Text count;
     //MOVEMENT-ANALOG
-    bool is_running;
+     bool is_running;
+    
     bool is_walking;
-    bool bombing = false;
+     bool bombing = false;
+    bool dynamitefiring=false;
     public Vector3 direction;
-
     float counter = 7f;
     bool isGameStarted = false;
 
@@ -61,6 +61,7 @@ public class BombermanHandler : MonoBehaviour
         horizontal = control.Horizontal;
         if (vertical != 0 || horizontal != 0)
         {
+            dynamitefiring=true;
             // Debug.Log(vertical.ToString() + "veritcal");
             // Debug.Log(horizontal.ToString() + "horizontal");
             count.text = counter.ToString();
@@ -69,6 +70,7 @@ public class BombermanHandler : MonoBehaviour
             counter -= Time.deltaTime;
             if (counter <= 0)
             {
+                Destroy(dynamitefire);
                 is_running = false;
                 bombing = true;
                 count.enabled = false;
@@ -180,7 +182,7 @@ public class BombermanHandler : MonoBehaviour
         // walking.SetBool("isWalking", is_walking);
         walking.SetBool("isWalking", is_walking);
     }
-
+ 
 
     //Collider koşula göre Bombing fonksiyonu çalıştır.
     void Bomb()
@@ -189,6 +191,8 @@ public class BombermanHandler : MonoBehaviour
         {
             bombing = true;
             bomb.SetActive(true);
+            
+            
         }
 
         // walking.SetBool("isWalking", is_walking);
