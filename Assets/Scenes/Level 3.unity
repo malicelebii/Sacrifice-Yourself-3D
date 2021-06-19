@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &82392551
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2213,8 +2213,6 @@ MonoBehaviour:
   - {fileID: 1440548643}
   gozculer:
   - {fileID: 1295090854}
-  death_camera: {fileID: 82392552}
-  real_camera: {fileID: 963194227}
   gozcu_sayisi: 0
   masum_sayisi: 0
   suclu_sayisi: 0
@@ -4022,7 +4020,7 @@ MonoBehaviour:
   - {fileID: 1188617037}
   - {fileID: 569559667}
   - {fileID: 1368745511}
-  fire: {fileID: 1295090854}
+  observer: {fileID: 0}
   speed: 1
   direction: {x: 0, y: 0, z: 0}
 --- !u!95 &1295090854
@@ -5927,7 +5925,9 @@ MonoBehaviour:
   area: {fileID: 556359863}
   JoystickCanvas: {fileID: 482120622}
   count: {fileID: 380887551}
+  bombing: 0
   direction: {x: 0, y: 0, z: 0}
+  bombCounter: 0
   speed: 4
   control: {fileID: 1473113367}
 --- !u!95 &1949283572

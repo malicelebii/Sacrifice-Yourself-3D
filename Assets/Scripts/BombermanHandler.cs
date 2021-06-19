@@ -18,22 +18,25 @@ public class BombermanHandler : MonoBehaviour
     // public GameObject masum;
     public GameObject area;
     public GameObject JoystickCanvas;
-   
+
     // public GameObject suclu;
 
     public Text count;
     //MOVEMENT-ANALOG
     bool is_running;
     bool is_walking;
-    bool bombing = false;
+    public bool bombing = false;
     public Vector3 direction;
 
     float counter = 7f;
+    [SerializeField] int bombCounter;
     bool isGameStarted = false;
 
     float vertical, horizontal;
     public int speed;
     public Joystick control;
+    Vector3 oldPosition;
+    Vector3 newPosition;
 
     private void FixedUpdate()
     {
@@ -59,20 +62,19 @@ public class BombermanHandler : MonoBehaviour
         #region move
         vertical = control.Vertical;
         horizontal = control.Horizontal;
-        if (vertical != 0 || horizontal != 0)
+        if (vertical != 0 || horizontal != 0 && bombCounter > 0)
         {
-            // Debug.Log(vertical.ToString() + "veritcal");
-            // Debug.Log(horizontal.ToString() + "horizontal");
+            newPosition = transform.position;
             count.text = counter.ToString();
             transform.up = new Vector3(0, 0, 0);
             transform.Translate(new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime, Space.World);
             counter -= Time.deltaTime;
-            if (counter <= 0)
-            {
-                is_running = false;
-                bombing = true;
-                count.enabled = false;
-            }
+            // if (counter <= 0)
+            // {
+            //     is_running = false;
+            //     bombing = true;
+            //     count.enabled = false;
+            // }
             direction = new Vector3(horizontal, 0, vertical);
             transform.forward = direction;
             is_running = true;
@@ -86,11 +88,20 @@ public class BombermanHandler : MonoBehaviour
             // }
             isGameStarted = true;
         }
-        else
+        else if (bombCounter > 0 && newPosition != oldPosition)
+        {
+            Debug.Log(bombCounter);
+            bombCounter--;
+            // running.SetBool("isRunning",false);
+            // running.SetBool("isWalking",true);
+            // is_running = false;
+            oldPosition = newPosition;
+            // transform.Translate(new Vector3(0, 0, 0));
+
+        }
+        else if (bombCounter <= 0)
         {
             is_running = false;
-            transform.Translate(new Vector3(0, 0, 0));
-
         }
         #endregion
 
@@ -129,6 +140,7 @@ public class BombermanHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oldPosition = transform.position;
         // GameOverPanel.SetActive(false);
     }
 
@@ -207,14 +219,17 @@ public class BombermanHandler : MonoBehaviour
         isFired.SetBool("isFired", fired);
     }
 
+    void DecreaseBombCounter()
+    {
+        bombCounter--;
+    }
 
 
     void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Observer" || collision.tag == "Guilty")
         {
-            Debug.Log("degdi");
-            Fired();
+            Bomb();
         }
 
     }

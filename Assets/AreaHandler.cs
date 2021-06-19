@@ -9,9 +9,6 @@ public class AreaHandler : MonoBehaviour
     public Animator[] suclular;
     public Animator[] gozculer;
 
-    public Camera death_camera;
-    public Camera real_camera;
-
     public int gozcu_sayisi;
     public int masum_sayisi;
     public int suclu_sayisi;
@@ -28,8 +25,7 @@ public class AreaHandler : MonoBehaviour
         gozcu_sayisi = 0;
         masum_sayisi = 0;
         suclu_sayisi = 0;
-        real_camera.enabled = true;
-     death_camera.enabled = false;
+     
     }
 
     // Update is called once per frame
@@ -53,7 +49,6 @@ public class AreaHandler : MonoBehaviour
                 }
             }
             // asd[0].SetBool("isDeath", true);
-            Debug.Log("degdi");
         }
 
         if (collision.tag == "Guilty")
@@ -85,7 +80,6 @@ public class AreaHandler : MonoBehaviour
                 }
             }
             Debug.Log("degdi innocent");
-            Debug.Log(collision.name);
         }
         if (gozcu_sayisi + suclu_sayisi < masum_sayisi)
         {
@@ -109,8 +103,7 @@ public class AreaHandler : MonoBehaviour
 
         }
 
-        death_camera.enabled=true;
-        real_camera.enabled=false;
+      
         
 
     }

@@ -7,10 +7,12 @@ public class ObserverHandler : MonoBehaviour
     //Movement(oto)
     //Raycast ile kontrol
     public GameObject[] waypoints;
-    public Animator fire;
+    public Animator observer;
     int current = 0;
     // public float rotationSpeed;
     public float speed;
+
+    BombermanHandler bomberman;
     float WPradius = 1;
     public Vector3 direction;
     RaycastHit enemy;
@@ -20,13 +22,17 @@ public class ObserverHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        observer.SetBool("isRun",true);
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(isDetected==true){
+        bomberman=GameObject.Find("stickman@Running").GetComponent<BombermanHandler>();
+       if(isDetected==true|| bomberman.bombing==true){
+        //    observer.SetBool("isBombed",true);
+        //    observer.SetBool("isDeath",false);
+        //    observer.SetBool("isRun",false);
            return;
        }
         if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius) {
@@ -51,9 +57,11 @@ public class ObserverHandler : MonoBehaviour
             {
                 isDetected=true;
                 Debug.Log("ışık temas etti");
-                fire.SetBool("isFired",true);
+                observer.SetBool("isFired",true);
                 enemy.collider.gameObject.GetComponent<MeshRenderer>().enabled=false;
             }
         }
     }
+
+    
 }
