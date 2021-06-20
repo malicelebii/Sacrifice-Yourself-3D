@@ -81,11 +81,16 @@ public class AreaHandler : MonoBehaviour
             }
             Debug.Log("degdi innocent");
         }
+        // Change Camera
+      
+        Invoke("PanelHandler",1.5f);
+    }
+
+    void PanelHandler(){
         if (gozcu_sayisi + suclu_sayisi < masum_sayisi)
         {
             GameOverPanel.SetActive(true);
             SucceedPanel.SetActive(false);
-
         }
         else
         {
@@ -96,7 +101,6 @@ public class AreaHandler : MonoBehaviour
             }
             else
             {
-
                 SucceedPanel.SetActive(true);
                 GameOverPanel.SetActive(false);
             }
