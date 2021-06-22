@@ -48,14 +48,10 @@ public class AreaHandler : MonoBehaviour
                     gozcu_sayisi++;
                 }
             }
-            // asd[0].SetBool("isDeath", true);
         }
 
         if (collision.tag == "Guilty")
         {
-            // asd[2].SetBool("isDeath", true);
-            // asd[3].SetBool("isDeath", true);
-            // asd[5].SetBool("isDeath", true);
             for (int i = 0; i < suclular.Length; i++)
             {
                 if (suclular[i].name == collision.name)
@@ -70,13 +66,12 @@ public class AreaHandler : MonoBehaviour
 
         if (collision.tag == "Innocent")
         {
-            // asd[1].SetBool("isDeath", true);
             for (int i = 0; i < masumlar.Length; i++)
             {
                 if (masumlar[i].name == collision.name)
                 {
                     masum_sayisi++;
-                    masumlar[i].SetBool("isDeath", true);
+                    masumlar[i].SetBool("isBombed", true);
                 }
             }
             Debug.Log("degdi innocent");
@@ -84,17 +79,61 @@ public class AreaHandler : MonoBehaviour
         // Change Camera
       
         Invoke("PanelHandler",1.5f);
+        Invoke("AnimationHandler",0.5f);
+        // AnimationHandler();
+    }
+
+    void AnimationHandler(){
+        //AnimationHandler ve PanelHandler'ın if orderları aynı olmalı. Birini değiştirince diğeri de değişmeli
+        if (ObserverHandler.isDetected == true)
+        {
+            for (int i = 0; i < masumlar.Length; i++)
+            {
+                masumlar[i].SetBool("isShotDown", true);
+            }
+            for (int i = 0; i < suclular.Length; i++)
+            {
+                suclular[i].SetBool("isFire", true);
+            }
+        }
+        else
+        {
+            if (suclu_sayisi != suclular.Length || masum_sayisi != 0)
+            {
+                for (int i = 0; i < masumlar.Length; i++)
+                {
+                    if (masumlar[i].GetBool("isBombed") == false){
+                        masumlar[i].SetBool("isShotDown", true);
+                    }
+                }
+                for (int i = 0; i < suclular.Length; i++)
+                {
+                    if (suclular[i].GetBool("isDeath") == false){
+                        suclular[i].SetBool("isFire", true);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < masumlar.Length; i++)
+                {
+                    masumlar[i].SetBool("isHappy", true);
+                }
+            }
+        }
     }
 
     void PanelHandler(){
-        if (gozcu_sayisi + suclu_sayisi < masum_sayisi)
+        //AnimationHandler ve PanelHandler'ın if orderları aynı olmalı. Birini değiştirince diğeri de değişmeli
+        if (ObserverHandler.isDetected == true)
         {
+            // Yakalanma case'i
             GameOverPanel.SetActive(true);
             SucceedPanel.SetActive(false);
         }
         else
         {
-            if (ObserverHandler.isDetected == true)
+            if (suclu_sayisi != suclular.Length || masum_sayisi != 0)
             {
                 GameOverPanel.SetActive(true);
                 SucceedPanel.SetActive(false);
@@ -104,11 +143,6 @@ public class AreaHandler : MonoBehaviour
                 SucceedPanel.SetActive(true);
                 GameOverPanel.SetActive(false);
             }
-
         }
-
-      
-        
-
     }
 }

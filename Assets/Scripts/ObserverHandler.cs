@@ -63,9 +63,9 @@ public class ObserverHandler : MonoBehaviour
         bomberman = GameObject.Find("stickman@Running").GetComponent<BombermanHandler>();
         if (isDetected == true || bomberman.bombing == true)
         {
-            //    observerAnimator.SetBool("isBombed",true);
-            //    observerAnimator.SetBool("isDeath",false);
-            //    observerAnimator.SetBool("isRun",false);
+               observerAnimator.SetBool("isBombed",true);
+               observerAnimator.SetBool("isDeath",false);
+               observerAnimator.SetBool("isRun",false);
             return;
         }
         //hareket.
