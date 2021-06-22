@@ -29,12 +29,12 @@ public class ObserverHandler : MonoBehaviour
     void Update()
     {
         bomberman=GameObject.Find("stickman@Running").GetComponent<BombermanHandler>();
-       if(isDetected==true|| bomberman.bombing==true){
-        //    observer.SetBool("isBombed",true);
-        //    observer.SetBool("isDeath",false);
-        //    observer.SetBool("isRun",false);
-           return;
-       }
+        if(isDetected==true|| bomberman.bombing==true){
+            observer.SetBool("isBombed",true);
+            observer.SetBool("isDeath",false);
+            observer.SetBool("isRun",false);
+            return;
+        }
         if (Vector3.Distance(waypoints[current].transform.position, transform.position) < WPradius) {
             current++;
             if (current >= waypoints.Length) {
