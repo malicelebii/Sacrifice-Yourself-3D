@@ -3,4 +3,4 @@
 <div>
 https://www.youtube.com/watch?v=lqZwi88HlzM
 </div>
-![Sacrifice]( asd / https://www.youtube.com/watch?v=lqZwi88HlzM)
+[![SC2 Video](doc/SC2_youtube.PNG)](https://www.youtube.com/watch?v=lqZwi88HlzM "SC2 Mini game - Click to Watch!")
