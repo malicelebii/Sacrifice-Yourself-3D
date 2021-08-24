@@ -1,6 +1,7 @@
 # Sacrifice-Yourself-3D
 
-<div>
-https://www.youtube.com/watch?v=lqZwi88HlzM
-</div>
-[![SC2 Video](doc/SC2_youtube.gif)](https://www.youtube.com/watch?v=lqZwi88HlzM)
+
+
+https://user-images.githubusercontent.com/44670988/130561906-a65d512e-c703-4034-843c-d168745608ac.mp4
+
+
